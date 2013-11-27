@@ -34,26 +34,28 @@ wpcmd.generalKeyUp = function (event) {
         wpcmd.toBeClearedCommand = setTimeout(function () {
             wpcmd.clearKeys();
         }, wpcmd.config.timeOut);
-		var _keyCode = event.keyCode || window.event.which;
+	var _keyCode = event.keyCode || window.event.which;
+		
         if (wpcmd.pressedKeys.length < wpcmd.config.maxCommandLength) {			
             wpcmd.pressedKeys += _keyCode;
 			wpcmd.typedCommand += String.fromCharCode(_keyCode).toLowerCase();
         }
         else
             wpcmd.pressedKeys = _keyCode;
-		if(wpcmd.toBeWritingCommand !== null) {
-			clearTimeout(wpcmd.toBeWritingCommand);
+            
+	if(wpcmd.toBeWritingCommand !== null) {
+		clearTimeout(wpcmd.toBeWritingCommand);
+	}
+	wpcmd.toBeWritingCommand = setTimeout(function () {
+		if (wpcmd.commands[wpcmd.pressedKeys] !== undefined) {
+			wpcmd.commands[wpcmd.pressedKeys]();
+			wpcmd.clearKeys();
 		}
-		wpcmd.toBeWritingCommand = setTimeout(function () {
-			if (wpcmd.commands[wpcmd.pressedKeys] !== undefined) {
-				wpcmd.commands[wpcmd.pressedKeys]();
-				wpcmd.clearKeys();
-			}
-			if (wpcmd.commands[wpcmd.typedCommand] !== undefined) {
-				wpcmd.commands[wpcmd.typedCommand]();
-				wpcmd.clearKeys();
-			}
-        }, wpcmd.config.breakTime);        
+		if (wpcmd.commands[wpcmd.typedCommand] !== undefined) {
+			wpcmd.commands[wpcmd.typedCommand]();
+			wpcmd.clearKeys();
+		}
+	}, wpcmd.config.breakTime);
     }    
 };
 
