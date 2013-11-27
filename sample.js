@@ -13,3 +13,13 @@ wpcmd.setPureCommand('7975', function(){
 wpcmd.setPureCommand('38384040373937396665', function(){ // up up down down lef right left right b a
 	document.getElementById('container').innerHTML += "<h2>In memory of PES!!!</h2>";
 });
+
+wpcmd.setCommand('alert', function()
+{
+	showAlertBox('pure javascript!!');
+});
+
+function showAlertBox(message)
+{
+	alert(message);
+};
