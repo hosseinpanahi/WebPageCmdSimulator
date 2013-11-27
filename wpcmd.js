@@ -26,8 +26,7 @@ wpcmd.clearKeys = function() {
 };
 
 wpcmd.runCommand = function(name){
-	if(name.length > 0)
-	{
+	if(name.length > 0)	{
 		if(wpcmd.commands[name] !== null && wpcmd.commands[name] !== undefined) {
 			wpcmd.commands[name]();
 			wpcmd.clearKeys();
