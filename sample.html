@@ -5,10 +5,31 @@
 		<script src="sample.js"></script>
 	</head>
 	<body>
-		<h1>This is a demo page</h1>
+		<h1>Demo page</h1>
 		<p>You can easily use this small library to run commands based on pressed keys in a web pages.</p>
+		<h3>Demo Commands:</h3>
+		<ul>
+			<li>ok</li>
+			<li>test</li>
+			<li>up up down down left right left right b a</li>
+		</ul>
 		<hr/>
 		<div id="container">
 		</div>
+		<div>
+			<ol>
+				<li>Add javascript file (wpcmd.js) to the page.</li>
+				<li>Set the configuration or leave it to be as its default.</li>
+				<li>Use wpcmd.setCommand to set a keyword to a callback function.<p>Sample:</p><code>wpcmd.setCommand('ok', function(){ alert('ok'); });</code></li>
+				<li>Use wpcmd.setPureCommand to set a collection of key codes to a callback function.<p>Sample:</p><code>wpcmd.setPureCommand('7975', function(){ alert('ok'); });</code></li>
+			</ol>
+		</div>
+		<h2>Configurations:</h2>
+		<ul>
+			<li>wpcmd.config.timeOut > time out for reseting the captured keys, default value is 1200ms</li>
+			<li>wpcmd.config.breakTime > miliseconds to wait for capturing the next key or excute the command, defaul value is 500ms</li>
+			<li>wpcmd.config.maxCommandLength > maximum size of commands name length, default value is 15</li>
+			<li>wpcmd.config.dontCaptureOnInputElements > do not capture the keys when typing in an input, default value is true</li>
+		</ul>
 	</body>
 </html>
