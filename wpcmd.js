@@ -36,7 +36,7 @@ wpcmd.runCommand = function(name){
 };
 
 wpcmd.generalKeyUp = function (event) {
-	var _target = event.target || window.event.srcElement;
+    var _target = event.target || window.event.srcElement;
     if (_target.tagName.toLocaleLowerCase() !== "input" || !wpcmd.config.dontCaptureOnInputElements) {
         if (wpcmd.toBeClearedCommand !== null) {
             clearTimeout(wpcmd.toBeClearedCommand);
