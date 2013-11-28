@@ -8,12 +8,13 @@ Javascript super lightweight library for executing commands on keyup events in a
 Add javascript file (wpcmd.js) to the page.
 Set the configuration or leave it to be as its default.
 Use wpcmd.setCommand to set a keyword to a callback function.
-Sample:
 
+#Sample:
 wpcmd.setCommand('ok', function(){ alert('ok'); });
-Use wpcmd.setPureCommand to set a collection of key codes to a callback function.
-Sample:
 
+Use wpcmd.setPureCommand to set a collection of key codes to a callback function.
+
+#Sample:
 wpcmd.setPureCommand('7975', function(){ alert('ok'); });
 
 Configurations:
